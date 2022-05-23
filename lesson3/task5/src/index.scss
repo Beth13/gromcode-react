@@ -9,21 +9,21 @@ body {
 
 .profile {
   margin: auto;
-  // display: flex;
   align-items: center;
+  background-color: bisque;
+  border-radius: 10px;
+  border: 3px solid black;
 
   &__name {
     text-align: center;
     margin-left: 8px;
-    opacity: 0.6;
+    opacity: 1;
     font-weight: 700;
   }
 
-  // &__text {
-  //   margin: 8px 0;
-  // }
-
   &__birth {
-    opacity: 0.5;
+    text-align: center;
+    margin: 0 8px;
+    opacity: 0.6;
   }
 }
