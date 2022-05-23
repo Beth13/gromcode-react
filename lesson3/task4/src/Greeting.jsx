@@ -1,7 +1,15 @@
 import React from "react";
 
-export default (props) => {
+const dateRender = (birthDate, nowDate) => {
+  return ((nowDate.getTime() - birthDate) / (24 * 3600 * 365.25 * 1000)) | 0;
+};
+
+const Greeting = (props) => {
   return (
-    <div className="greeting">{`My name is ${props.firstName} ${props.lastName}. I'm ${props.birthDate} years old`}</div>
+    <div className="greeting">{`My name is ${props.firstName} ${
+      props.lastName
+    }. I'm ${dateRender(props.birthDate, new Date())} years old`}</div>
   );
 };
+
+export default Greeting;
