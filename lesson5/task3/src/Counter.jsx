@@ -11,17 +11,17 @@ class Counter extends Component {
     this.decrement = this.decrement.bind(this);
   }
 
-  increment = () => {
-    this.setState({
-      counter: this.state.counter + 1,
-    });
-  };
-
   decrement() {
     this.setState({
       counter: this.state.counter - 1,
     });
   }
+
+  increment = () => {
+    this.setState({
+      counter: this.state.counter + 1,
+    });
+  };
 
   reset() {
     this.setState({
