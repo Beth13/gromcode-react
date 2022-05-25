@@ -9,8 +9,8 @@ class Toggler extends Component {
     };
   }
 
-  handleClick = (event) => {
-    if (event.target.textContent === "Off") {
+  handleClick = () => {
+    if (this.state.text === "Off") {
       this.setState({
         text: "On",
       });
