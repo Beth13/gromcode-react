@@ -5,7 +5,7 @@ class Toggler extends Component {
     super(props);
 
     this.state = {
-      text: props.text,
+      text: "Off",
     };
   }
 

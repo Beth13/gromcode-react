@@ -5,4 +5,4 @@ import Toggler from "./Toggler.jsx";
 
 const rootElem = document.querySelector("#root");
 
-ReactDOM.render(<Toggler text="Off" />, rootElem);
+ReactDOM.render(<Toggler />, rootElem);
