@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       counter: 0,
@@ -31,16 +31,16 @@ class Counter extends Component {
 
   render() {
     return (
-      <div class="counter">
+      <div className="counter">
         <button
           data-action="decrease"
-          class="counter__button"
+          className="counter__button"
           onClick={this.decrement}
         >
           -
         </button>
         <span
-          class="counter__value"
+          className="counter__value"
           onClick={() => {
             this.reset();
           }}
@@ -49,7 +49,7 @@ class Counter extends Component {
         </span>
         <button
           data-action="increase"
-          class="counter__button"
+          className="counter__button"
           onClick={this.increment}
         >
           +
