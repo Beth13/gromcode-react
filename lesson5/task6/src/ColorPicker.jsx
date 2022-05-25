@@ -45,7 +45,7 @@ class ColorPicker extends Component {
           ></button>
           <button
             className="picker__button picker__button_bisque"
-            data-color="Biqsue"
+            data-color="Bisque"
             onMouseEnter={this.colorBtnOn}
             onMouseLeave={() => {
               this.setState({
