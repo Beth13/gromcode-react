@@ -9,15 +9,6 @@ class ColorPicker extends Component {
     };
   }
 
-  colorBtnOn = (event) => {
-    const colorBtn = event.target.dataset.color;
-    // console.log(colorBtn);
-
-    this.setState({
-      color: colorBtn,
-    });
-  };
-
   render() {
     return (
       <div>
@@ -25,8 +16,11 @@ class ColorPicker extends Component {
         <div>
           <button
             className="picker__button picker__button_coral"
-            data-color="Coral"
-            onMouseEnter={this.colorBtnOn}
+            onMouseEnter={() =>
+              this.setState({
+                color: "Coral",
+              })
+            }
             onMouseLeave={() => {
               this.setState({
                 color: "",
@@ -35,8 +29,11 @@ class ColorPicker extends Component {
           ></button>
           <button
             className="picker__button picker__button_aqua"
-            data-color="Aqua"
-            onMouseEnter={this.colorBtnOn}
+            onMouseEnter={() =>
+              this.setState({
+                color: "Aqua",
+              })
+            }
             onMouseLeave={() => {
               this.setState({
                 color: "",
@@ -45,8 +42,11 @@ class ColorPicker extends Component {
           ></button>
           <button
             className="picker__button picker__button_bisque"
-            data-color="Bisque"
-            onMouseEnter={this.colorBtnOn}
+            onMouseEnter={() =>
+              this.setState({
+                color: "Bisque",
+              })
+            }
             onMouseLeave={() => {
               this.setState({
                 color: "",
