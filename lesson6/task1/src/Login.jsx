@@ -1,6 +1,6 @@
 import React from "react";
 
-const IsLogin = (props) => {
+const Login = (props) => {
   const { onLogin } = props;
 
   return (
@@ -10,4 +10,4 @@ const IsLogin = (props) => {
   );
 };
 
-export default IsLogin;
+export default Login;

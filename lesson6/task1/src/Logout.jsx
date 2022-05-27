@@ -1,6 +1,6 @@
 import React from "react";
 
-const IsLogout = (props) => {
+const Logout = (props) => {
   const { onLogout } = props;
 
   return (
@@ -10,4 +10,4 @@ const IsLogout = (props) => {
   );
 };
 
-export default IsLogout;
+export default Logout;
