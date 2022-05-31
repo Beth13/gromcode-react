@@ -7,12 +7,12 @@ class Life extends Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount: API calls, subscriptions");
+    console.log("componentDidMount(): API calls, subscriptions");
   }
 
   componentWillUnmount() {
     console.log(
-      "componentWillUnmount: cleanup before DOM related to component will be removed"
+      "componentWillUnmount(): cleanup before DOM related to component will be removed"
     );
   }
 
