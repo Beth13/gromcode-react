@@ -7,7 +7,7 @@ class Life extends Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount(): API calls, subscriptions");
+    console.log("componentDidMount: API calls, subscriptions");
   }
 
   componentWillUnmount() {
