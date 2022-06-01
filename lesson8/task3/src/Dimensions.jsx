@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Dimensons extends Component {
+class Dimensions extends Component {
   state = {
     width: null,
     height: null,
@@ -40,4 +40,4 @@ class Dimensons extends Component {
   }
 }
 
-export default Dimensons;
+export default Dimensions;
