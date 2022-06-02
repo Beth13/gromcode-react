@@ -47,7 +47,7 @@ class UsersList extends Component {
           filterText={this.state.text}
         />
         <ul className="users">
-          {this.state.value === ""
+          {this.state.text === ""
             ? this.props.users.map((user) => <User key={user.id} {...user} />)
             : this.state.users.map((user) => <User key={user.id} {...user} />)}
         </ul>
