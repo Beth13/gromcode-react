@@ -23,8 +23,8 @@ class UsersList extends Component {
   };
 
   findUsers = (name) => {
-    const newUsersArr = this.props.users.filter((user) =>
-      user.name.toLowerCase().includes(this.state.value.toLowerCase())
+    const newUsersArr = this.props.users.filter(
+      (user) => user.name.toLowerCase() === name.toLowerCase()
     );
 
     return newUsersArr;
@@ -37,13 +37,17 @@ class UsersList extends Component {
     });
   };
 
+  search = (event) => {
+    this.handleChange(event);
+    this.changeList(event);
+  };
+
   render() {
     return (
       <div>
         <Filter
-          onChange={() => {
-            this.handleChange(event);
-            this.changeList(event);
+          onChange={(event) => {
+            this.search(event);
           }}
           count={this.state.count}
           filterText={this.state.value}
