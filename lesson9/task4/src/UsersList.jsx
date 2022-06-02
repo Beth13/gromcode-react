@@ -23,38 +23,22 @@ class UsersList extends Component {
   };
 
   findUsers = (name) =>
-    this.props.users.filter(
-      (user) => user.name.toLowerCase() === name.toLowerCase()
+    this.props.users.filter((user) =>
+      user.name.toLowerCase().includes(this.state.value.toLowerCase())
     );
 
-  changeList = (event) => {
-    this.setState({
-      count: this.findUsers(event.target.value).length,
-      users: this.findUsers(event.target.value),
-    });
-  };
-
-  search = (event) => {
-    this.handleChange(event);
-    this.changeList(event);
-  };
-
   render() {
-    const newUsersArray = this.findUsers(this.state.value);
-
     return (
       <div>
         <Filter
-          onChange={(event) => {
-            this.search(event);
-          }}
-          count={this.state.count}
+          onChange={this.handleChange}
+          count={this.findUsers(this.state.value).length}
           filterText={this.state.value}
         />
         <ul className="users">
-          {this.state.value === ""
-            ? this.props.users.map((user) => <User key={user.id} {...user} />)
-            : newUsersArray.map((user) => <User key={user.id} {...user} />)}
+          {this.findUsers(this.state.value).map((user) => (
+            <User key={user.id} {...user} />
+          ))}
         </ul>
       </div>
     );
