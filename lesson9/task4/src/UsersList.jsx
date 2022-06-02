@@ -11,21 +11,23 @@ import Filter from "./Filter.jsx";
 
 class UsersList extends Component {
   state = {
-    text: "",
+    value: "",
     count: this.props.users.length,
     users: this.props.users,
   };
 
   handleChange = (event) => {
     this.setState({
-      text: event.target.value,
+      value: event.target.value,
     });
   };
 
   findUsers = (name) => {
-    return this.props.users.filter(
+    const newUsersArr = this.props.users.filter(
       (user) => user.name.toLowerCase() === name.toLowerCase()
     );
+
+    return newUsersArr;
   };
 
   changeList = (event) => {
@@ -44,10 +46,10 @@ class UsersList extends Component {
             this.changeList(event);
           }}
           count={this.state.count}
-          filterText={this.state.text}
+          filterText={this.state.value}
         />
         <ul className="users">
-          {this.state.text === ""
+          {this.state.value === ""
             ? this.props.users.map((user) => <User key={user.id} {...user} />)
             : this.state.users.map((user) => <User key={user.id} {...user} />)}
         </ul>
