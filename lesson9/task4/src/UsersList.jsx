@@ -22,13 +22,10 @@ class UsersList extends Component {
     });
   };
 
-  findUsers = (name) => {
-    const newUsersArr = this.props.users.filter(
+  findUsers = (name) =>
+    this.props.users.filter(
       (user) => user.name.toLowerCase() === name.toLowerCase()
     );
-
-    return newUsersArr;
-  };
 
   changeList = (event) => {
     this.setState({
@@ -43,6 +40,8 @@ class UsersList extends Component {
   };
 
   render() {
+    const newUsersArray = this.findUsers(this.state.value);
+
     return (
       <div>
         <Filter
@@ -55,9 +54,7 @@ class UsersList extends Component {
         <ul className="users">
           {this.state.value === ""
             ? this.props.users.map((user) => <User key={user.id} {...user} />)
-            : this.findUsers(this.state.value).map((user) => (
-                <User key={user.id} {...user} />
-              ))}
+            : newUsersArray.map((user) => <User key={user.id} {...user} />)}
         </ul>
       </div>
     );
