@@ -55,7 +55,9 @@ class UsersList extends Component {
         <ul className="users">
           {this.state.value === ""
             ? this.props.users.map((user) => <User key={user.id} {...user} />)
-            : this.state.users.map((user) => <User key={user.id} {...user} />)}
+            : this.findUsers(this.state.value).map((user) => (
+                <User key={user.id} {...user} />
+              ))}
         </ul>
       </div>
     );
