@@ -23,8 +23,8 @@ class UsersList extends Component {
   };
 
   findUsers = (name) => {
-    const newUsersArr = this.props.users.filter(
-      (user) => user.name.toLowerCase() === name.toLowerCase()
+    const newUsersArr = this.props.users.filter((user) =>
+      user.name.toLowerCase().includes(this.state.value.toLowerCase())
     );
 
     return newUsersArr;
