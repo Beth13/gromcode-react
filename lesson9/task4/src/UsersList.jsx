@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import User from "./User.jsx";
 import Filter from "./Filter.jsx";
 
+// algo
+// 1. render list, input and counter +++
+// 2. handleChange() +++
+// 3. find users with filter() +++
+// 4. rerender new array of filtered users +++
+// 5. if(value === '') rerender the default array +++
+
 class UsersList extends Component {
   state = {
     text: "",
@@ -28,28 +35,17 @@ class UsersList extends Component {
     });
   };
 
-  search = (event) => {
-    this.handleChange(event);
-    this.changeList(event);
-  };
-
   render() {
     return (
       <div>
-        <div className="filter">
-          <span className="filter__count">{this.state.count}</span>
-          <input
-            type="text"
-            className="filter__input"
-            value={this.state.text}
-            onChange={this.search}
-          />
-        </div>
-        {/* <Filter
-          onChange={this.search}
+        <Filter
+          onChange={() => {
+            this.handleChange(event);
+            this.changeList(event);
+          }}
           count={this.state.count}
           filterText={this.state.text}
-        /> */}
+        />
         <ul className="users">
           {this.state.value === ""
             ? this.props.users.map((user) => <User key={user.id} {...user} />)
