@@ -38,7 +38,7 @@ class UsersList extends Component {
     return (
       <div>
         <Filter
-          onChange={() => {
+          onChange={(event) => {
             this.handleChange(event);
             this.changeList(event);
           }}
@@ -46,9 +46,9 @@ class UsersList extends Component {
           filterText={this.state.text}
         />
         <ul className="users">
-          {this.state.text === ""
-            ? this.props.users.map((user) => <User key={user.id} {...user} />)
-            : this.state.users.map((user) => <User key={user.id} {...user} />)}
+          {this.state.users.map((user) => (
+            <User key={user.id} {...user} />
+          ))}
         </ul>
       </div>
     );
