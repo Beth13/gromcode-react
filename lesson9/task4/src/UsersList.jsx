@@ -7,17 +7,18 @@ import Filter from "./Filter.jsx";
 // 2. handleChange() +++
 // 3. find users with filter() +++
 // 4. rerender new array of filtered users +++
+// 5. if(value === '') rerender the default array +++
 
 class UsersList extends Component {
   state = {
-    value: "",
+    text: "",
     count: this.props.users.length,
     users: this.props.users,
   };
 
   handleChange = (event) => {
     this.setState({
-      value: event.target.value,
+      text: event.target.value,
     });
   };
 
@@ -26,18 +27,28 @@ class UsersList extends Component {
       user.name.toLowerCase().includes(nameStr.toLowerCase())
     );
 
+  changeList = (event) => {
+    this.setState({
+      count: this.findUsers(event.target.value).length,
+      users: this.findUsers(event.target.value),
+    });
+  };
+
   render() {
     return (
       <div>
         <Filter
-          onChange={this.handleChange}
-          count={this.findUsers(this.state.value).length}
-          filterText={this.state.value}
+          onChange={() => {
+            this.handleChange(event);
+            this.changeList(event);
+          }}
+          count={this.state.count}
+          filterText={this.state.text}
         />
         <ul className="users">
-          {this.findUsers(this.state.value).map((user) => (
-            <User key={user.id} {...user} />
-          ))}
+          {this.state.text === ""
+            ? this.props.users.map((user) => <User key={user.id} {...user} />)
+            : this.state.users.map((user) => <User key={user.id} {...user} />)}
         </ul>
       </div>
     );
