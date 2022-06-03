@@ -7,7 +7,6 @@ import Filter from "./Filter.jsx";
 // 2. handleChange() +++
 // 3. find users with filter() +++
 // 4. rerender new array of filtered users +++
-// 5. if(value === '') rerender the default array +++
 
 class UsersList extends Component {
   state = {
@@ -22,9 +21,9 @@ class UsersList extends Component {
     });
   };
 
-  findUsers = (name) =>
+  findUsers = (nameStr) =>
     this.props.users.filter((user) =>
-      user.name.toLowerCase().includes(this.state.value.toLowerCase())
+      user.name.toLowerCase().includes(nameStr.toLowerCase())
     );
 
   render() {
