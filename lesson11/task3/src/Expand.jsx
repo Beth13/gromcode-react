@@ -1,29 +1,43 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "font-awesome/css/font-awesome.min.css";
 
-const Expand = ({ title, children, onOpen, isOpen, onClose }) => {
-  return (
-    <div className="expand border">
-      <div className="expand__header">
-        <span className="expand__title">{title}</span>
-        <button
-          className="expand__toggle-btn"
-          onClick={!isOpen ? onOpen : onClose}
-        >
-          <i className={`fa fa-solid fa-angle-${!isOpen ? "down" : "up"}`}></i>
-        </button>
+class Expand extends Component {
+  state = {
+    isOpen: false,
+  };
+
+  showHandler = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  };
+
+  render() {
+    return (
+      <div className="expand border">
+        <div className="expand__header">
+          <span className="expand__title">{this.props.title}</span>
+          <button className="expand__toggle-btn" onClick={this.showHandler}>
+            <i
+              className={`fa fa-solid fa-angle-${
+                !this.state.isOpen ? "down" : "up"
+              }`}
+            ></i>
+          </button>
+        </div>
+        {!this.state.isOpen ? null : (
+          <div className="expand__content">{this.props.children}</div>
+        )}
       </div>
-      {!isOpen ? null : <div className="expand__content">{children}</div>}
-    </div>
-  );
-};
+    );
+  }
+}
 
 Expand.propTypes = {
   isOpen: PropTypes.bool,
   children: PropTypes.element.isRequired,
   title: PropTypes.string,
-  onClose: PropTypes.func.isRequired,
 };
 
 Expand.defaultProps = {
