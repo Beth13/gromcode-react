@@ -19,7 +19,7 @@ const App = () => {
 
           <Switch>
             <Route path="/users/:userId" component={User}></Route>
-            <Route path="/">Select a user please</Route>
+            <Route path="">Select a user please</Route>
           </Switch>
         </div>
       </Router>
